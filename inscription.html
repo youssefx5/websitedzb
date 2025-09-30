@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="inscription.css">
     <title>Ailes d'Espoir - Rejoignez Notre Mission</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="api-client.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -349,7 +350,6 @@
     <script>
         // Variables globales
         let applications = [];
-        let nextId = 1;
         let currentStep = 1;
         const totalSteps = 5;
 
@@ -479,13 +479,10 @@
         }
 
         // Soumission du formulaire
-        function submitForm() {
+        async function submitForm() {
             const formData = new FormData(document.getElementById('membershipForm'));
             
             const application = {
-                id: nextId++,
-                timestamp: new Date().toLocaleString('fr-FR'),
-                status: 'pending',
                 nom: formData.get('nom'),
                 email: formData.get('email'),
                 telephone: formData.get('telephone'),
@@ -498,19 +495,22 @@
                 typeAdhesion: formData.get('type-adhesion'),
                 newsletter: formData.get('newsletter') ? true : false
             };
-
-            applications.push(application);
             
             // Animation de soumission
             const nextBtn = document.getElementById('nextBtn');
             nextBtn.innerHTML = '<div class="loading"></div> Envoi...';
             nextBtn.disabled = true;
             
-            setTimeout(() => {
+            try {
+                await API.createApplication(application);
                 document.getElementById('successModal').style.display = 'block';
                 resetForm();
-                updateAdminPanel();
-            }, 2000);
+                await loadApplications();
+            } catch (error) {
+                showNotification('Erreur lors de l\'envoi de la candidature', 'error');
+                nextBtn.innerHTML = 'Suivant <i class="fas fa-arrow-right"></i>';
+                nextBtn.disabled = false;
+            }
         }
 
         function resetForm() {
@@ -544,12 +544,25 @@
             document.getElementById('successModal').style.display = 'none';
         }
 
+        // Load applications from API
+        async function loadApplications() {
+            try {
+                applications = await API.getApplications();
+                updateAdminPanel();
+            } catch (error) {
+                console.error('Error loading applications:', error);
+                showNotification('Erreur lors du chargement des candidatures', 'error');
+            }
+        }
+
         // Panel d'administration
-        function toggleAdmin() {
+        async function toggleAdmin() {
             const panel = document.getElementById('adminPanel');
             panel.style.display = panel.style.display === 'none' || panel.style.display === '' 
                 ? 'block' : 'none';
-            updateAdminPanel();
+            if (panel.style.display === 'block') {
+                await loadApplications();
+            }
         }
 
         function updateAdminPanel() {
@@ -644,22 +657,26 @@
             return options[disponibilite] || 'Non spécifiée';
         }
 
-        function approveApplication(id) {
-            const app = applications.find(a => a.id === id);
-            if (app) {
-                app.status = 'approved';
-                updateAdminPanel();
-                showNotification(`Candidature de ${app.nom} approuvée !`, 'success');
+        async function approveApplication(id) {
+            try {
+                await API.approveApplication(id);
+                await loadApplications();
+                const app = applications.find(a => a.id === id);
+                showNotification(`Candidature de ${app ? app.nom : 'candidat'} approuvée !`, 'success');
+            } catch (error) {
+                showNotification('Erreur lors de l\'approbation de la candidature', 'error');
             }
         }
 
-        function rejectApplication(id) {
+        async function rejectApplication(id) {
             if (confirm('Êtes-vous sûr de vouloir rejeter cette candidature ?')) {
-                const app = applications.find(a => a.id === id);
-                if (app) {
-                    app.status = 'rejected';
-                    updateAdminPanel();
-                    showNotification(`Candidature de ${app.nom} rejetée`, 'warning');
+                try {
+                    await API.rejectApplication(id);
+                    await loadApplications();
+                    const app = applications.find(a => a.id === id);
+                    showNotification(`Candidature de ${app ? app.nom : 'candidat'} rejetée`, 'warning');
+                } catch (error) {
+                    showNotification('Erreur lors du rejet de la candidature', 'error');
                 }
             }
         }
