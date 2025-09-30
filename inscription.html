@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="inscription.css">
+    <title>Ailes d'Espoir - Rejoignez Notre Mission</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-dove"></i>
+                Ailes d'Espoir
+            </a>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#adhesion">Adhésion</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="hero-content">
+            <h1>Ensemble, Créons un Avenir Meilleur</h1>
+            <p>Rejoignez Ailes d'Espoir et participez à notre mission de solidarité et d'entraide. Votre engagement peut changer des vies.</p>
+            <div class="cta-buttons">
+                <a href="#adhesion" class="btn btn-primary">
+                    <i class="fas fa-heart"></i>
+                    Rejoindre Maintenant
+                </a>
+                <a href="#mission" class="btn btn-outline">
+                    <i class="fas fa-info-circle"></i>
+                    En Savoir Plus
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="main-container">
+
+
+        <!-- Form Section -->
+        <section class="form-section" id="adhesion">
+            <div class="form-header">
+                <h2>Devenir Membre d'Ailes d'Espoir</h2>
+                <p>Rejoignez notre communauté engagée et contribuez à faire la différence</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-bar">
+                <div class="progress-step active" id="step1">1</div>
+                <div class="progress-step" id="step2">2</div>
+                <div class="progress-step" id="step3">3</div>
+                <div class="progress-step" id="step4">4</div>
+                <div class="progress-step" id="step5">5</div>
+            </div>
+
+            <form id="membershipForm">
+                <!-- Step 1: Informations personnelles -->
+                <div class="form-step active" id="formStep1">
+                    <div class="section-card">
+                        <div class="section-title">
+                            <div class="section-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            Informations Personnelles
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nom">Nom Complet *</label>
+                                <i class="fas fa-user input-icon"></i>
+                                <input type="text" id="nom" name="nom" required placeholder="Entrez votre nom complet">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Adresse Email *</label>
+                                <i class="fas fa-envelope input-icon"></i>
+                                <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telephone">Numéro de Téléphone *</label>
+                                <i class="fas fa-phone input-icon"></i>
+                                <input type="tel" id="telephone" name="telephone" required placeholder="+212 6XX XXX XXX">
+                            </div>
+                            <div class="form-group">
+                                <label for="ville">Ville de Résidence *</label>
+                                <i class="fas fa-map-marker-alt input-icon"></i>
+                                <input type="text" id="ville" name="ville" required placeholder="Votre ville">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Motivation -->
+                <div class="form-step" id="formStep2">
+                    <div class="section-card">
+                        <div class="section-title">
+                            <div class="section-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            Vos Motivations
+                        </div>
+                        
+                        <div class="form-group textarea-group">
+                            <label for="motivation">Pourquoi souhaitez-vous rejoindre Ailes d'Espoir ? *</label>
+                            <textarea id="motivation" name="motivation" required placeholder="Partagez vos motivations et ce qui vous pousse à nous rejoindre..."></textarea>
+                        </div>
+                        
+                        <div class="form-group textarea-group">
+                            <label for="apport">Qu'aimeriez-vous apporter à notre association ? *</label>
+                            <textarea id="apport" name="apport" required placeholder="Décrivez vos compétences, expériences ou idées que vous souhaitez partager..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Disponibilité -->
+                <div class="form-step" id="formStep3">
+                    <div class="section-card">
+                        <div class="section-title">
+                            <div class="section-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            Votre Disponibilité
+                        </div>
+                        
+                        <label>À quelle fréquence pourriez-vous participer ? *</label>
+                        <div class="checkbox-grid">
+                            <div class="radio-item" onclick="selectRadio('disponibilite', 'regulier')">
+                                <input type="radio" id="regulier" name="disponibilite" value="regulier" required>
+                                <div>
+                                    <strong>Régulièrement</strong>
+                                    <br><small>Participation hebdomadaire aux activités</small>
+                                </div>
+                            </div>
+                            <div class="radio-item" onclick="selectRadio('disponibilite', 'occasionnel')">
+                                <input type="radio" id="occasionnel" name="disponibilite" value="occasionnel" required>
+                                <div>
+                                    <strong>Occasionnellement</strong>
+                                    <br><small>Selon les besoins et votre planning</small>
+                                </div>
+                            </div>
+                            <div class="radio-item" onclick="selectRadio('disponibilite', 'evenements')">
+                                <input type="radio" id="evenements" name="disponibilite" value="evenements" required>
+                                <div>
+                                    <strong>Événements Spéciaux</strong>
+                                    <br><small>Participation aux grands événements uniquement</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Compétences -->
+                <div class="form-step" id="formStep4">
+                    <div class="section-card">
+                        <div class="section-title">
+                            <div class="section-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            Domaines de Contribution
+                        </div>
+                        
+                        <label>Dans quels domaines souhaitez-vous contribuer ? (Plusieurs choix possibles)</label>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item" onclick="toggleCheckbox('communication')">
+                                <input type="checkbox" id="communication" name="competences" value="communication">
+                                <div>
+                                    <strong><i class="fas fa-bullhorn"></i> Communication</strong>
+                                    <br><small>Réseaux sociaux, marketing, relations publiques</small>
+                                </div>
+                            </div>
+                            <div class="checkbox-item" onclick="toggleCheckbox('logistique')">
+                                <input type="checkbox" id="logistique" name="competences" value="logistique">
+                                <div>
+                                    <strong><i class="fas fa-cogs"></i> Logistique</strong>
+                                    <br><small>Organisation d'événements, coordination</small>
+                                </div>
+                            </div>
+                            <div class="checkbox-item" onclick="toggleCheckbox('collectes')">
+                                <input type="checkbox" id="collectes" name="competences" value="collectes">
+                                <div>
+                                    <strong><i class="fas fa-donate"></i> Collectes de Fonds</strong>
+                                    <br><small>Financement, subventions, partenariats</small>
+                                </div>
+                            </div>
+                            <div class="checkbox-item" onclick="toggleCheckbox('aide-directe')">
+                                <input type="checkbox" id="aide-directe" name="competences" value="aide-directe">
+                                <div>
+                                    <strong><i class="fas fa-hands-helping"></i> Aide Directe</strong>
+                                    <br><small>Distribution, accompagnement, terrain</small>
+                                </div>
+                            </div>
+                            <div class="checkbox-item" onclick="toggleCheckbox('formation')">
+                                <input type="checkbox" id="formation" name="competences" value="formation">
+                                <div>
+                                    <strong><i class="fas fa-chalkboard-teacher"></i> Formation</strong>
+                                    <br><small>Éducation, ateliers, développement de compétences</small>
+                                </div>
+                            </div>
+                            <div class="checkbox-item" onclick="toggleCheckbox('autres-comp')">
+                                <input type="checkbox" id="autres-comp" name="competences" value="autres">
+                                <div>
+                                    <strong><i class="fas fa-plus"></i> Autres Compétences</strong>
+                                    <br><small>Précisez vos domaines d'expertise</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group textarea-group" id="autresCompetences" style="display: none; margin-top: 1.5rem;">
+                            <label for="autres-details">Précisez vos autres compétences</label>
+                            <textarea id="autres-details" name="autres-details" placeholder="Décrivez vos compétences spécifiques..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Type d'adhésion -->
+                <div class="form-step" id="formStep5">
+                    <div class="section-card">
+                        <div class="section-title">
+                            <div class="section-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            Type d'Adhésion
+                        </div>
+                        
+                        <label>Choisissez le type de membre que vous souhaitez devenir *</label>
+                        <div class="checkbox-grid">
+                            <div class="radio-item" onclick="selectRadio('type-adhesion', 'actif')">
+                                <input type="radio" id="membre-actif" name="type-adhesion" value="actif" required>
+                                <div>
+                                    <strong><i class="fas fa-user-check"></i> Membre Actif</strong>
+                                    <br><small>Participation directe aux activités et projets</small>
+                                    <br><small class="text-primary">Engagement recommandé: 4h/mois minimum</small>
+                                </div>
+                            </div>
+                            <div class="radio-item" onclick="selectRadio('type-adhesion', 'sympathisant')">
+                                <input type="radio" id="membre-sympathisant" name="type-adhesion" value="sympathisant" required>
+                                <div>
+                                    <strong><i class="fas fa-heart"></i> Membre Sympathisant</strong>
+                                    <br><small>Soutien moral et financier de nos actions</small>
+                                    <br><small class="text-primary">Cotisation annuelle et participation aux événements</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Terms and Conditions -->
+                    <div class="section-card">
+                        <div class="checkbox-item" onclick="toggleCheckbox('terms')">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <div>
+                                <strong>J'accepte les conditions d'adhésion *</strong>
+                                <br><small>En cochant cette case, vous acceptez notre charte et vous engagez à respecter nos valeurs de solidarité, respect et transparence.</small>
+                            </div>
+                        </div>
+                        
+                        <div class="checkbox-item" onclick="toggleCheckbox('newsletter')">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <div>
+                                <strong>Recevoir notre newsletter</strong>
+                                <br><small>Restez informé de nos activités, projets et événements.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="form-navigation">
+                    <button type="button" class="btn-nav btn-prev" onclick="prevStep()" id="prevBtn" style="display: none;">
+                        <i class="fas fa-arrow-left"></i>
+                        Précédent
+                    </button>
+                    <div class="step-info">
+                        <span id="currentStepText">Étape 1 sur 5</span>
+                    </div>
+                    <button type="button" class="btn-nav btn-next" onclick="nextStep()" id="nextBtn">
+                        Suivant
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Admin Panel -->
+        <div class="admin-panel" id="adminPanel">
+            <div class="admin-header">
+                <div>
+                    <h2><i class="fas fa-cog"></i> Panel d'Administration</h2>
+                    <p>Gestion des candidatures d'adhésion</p>
+                </div>
+                <button class="btn btn-primary" onclick="exportData()">
+                    <i class="fas fa-download"></i> Exporter
+                </button>
+            </div>
+            
+            <div class="admin-stats">
+                <div class="admin-stat-card">
+                    <div class="admin-stat-number pending" id="pendingCount">0</div>
+                    <div>En Attente</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-number approved" id="approvedCount">0</div>
+                    <div>Approuvées</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-number rejected" id="rejectedCount">0</div>
+                    <div>Rejetées</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-number" id="totalCount">0</div>
+                    <div>Total</div>
+                </div>
+            </div>
+            
+            <div id="applicationsList"></div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h3>Candidature Soumise avec Succès !</h3>
+            <p>Merci de votre intérêt pour Ailes d'Espoir. Votre candidature a été reçue et sera examinée dans les plus brefs délais.</p>
+            <p><strong>Vous recevrez une réponse par email sous 48h.</strong></p>
+            <button class="btn btn-primary" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+                Fermer
+            </button>
+        </div>
+    </div>
+
+    <!-- Admin Toggle Button -->
+    <button class="admin-toggle" onclick="toggleAdmin()" title="Panel Administration">
+        <i class="fas fa-cog"></i>
+    </button>
+
+    <script>
+        // Variables globales
+        let applications = [];
+        let nextId = 1;
+        let currentStep = 1;
+        const totalSteps = 5;
+
+        // Animation des statistiques
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current).toLocaleString();
+                }
+            }, 20);
+        }
+
+        // Initialisation des compteurs
+        document.addEventListener('DOMContentLoaded', function() {
+            animateCounter(document.getElementById('membersCount'), 1247);
+            animateCounter(document.getElementById('projectsCount'), 156);
+            animateCounter(document.getElementById('beneficiariesCount'), 12500);
+            animateCounter(document.getElementById('volunteersCount'), 89);
+        });
+
+        // Gestion des étapes du formulaire
+        function nextStep() {
+            if (validateCurrentStep()) {
+                if (currentStep < totalSteps) {
+                    document.getElementById(`formStep${currentStep}`).classList.remove('active');
+                    document.getElementById(`step${currentStep}`).classList.add('completed');
+                    
+                    currentStep++;
+                    
+                    document.getElementById(`formStep${currentStep}`).classList.add('active');
+                    document.getElementById(`step${currentStep}`).classList.add('active');
+                    
+                    updateNavigation();
+                } else {
+                    submitForm();
+                }
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                document.getElementById(`formStep${currentStep}`).classList.remove('active');
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                
+                currentStep--;
+                
+                document.getElementById(`formStep${currentStep}`).classList.add('active');
+                document.getElementById(`step${currentStep}`).classList.remove('completed');
+                
+                updateNavigation();
+            }
+        }
+
+        function updateNavigation() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const stepText = document.getElementById('currentStepText');
+            
+            prevBtn.style.display = currentStep > 1 ? 'flex' : 'none';
+            nextBtn.innerHTML = currentStep === totalSteps 
+                ? '<i class="fas fa-paper-plane"></i> Soumettre' 
+                : 'Suivant <i class="fas fa-arrow-right"></i>';
+            
+            stepText.textContent = `Étape ${currentStep} sur ${totalSteps}`;
+        }
+
+        function validateCurrentStep() {
+            const currentStepElement = document.getElementById(`formStep${currentStep}`);
+            const requiredInputs = currentStepElement.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredInputs.forEach(input => {
+                if (!input.value.trim()) {
+                    input.style.borderColor = 'var(--danger-color)';
+                    isValid = false;
+                    setTimeout(() => {
+                        input.style.borderColor = '';
+                    }, 3000);
+                } else {
+                    input.style.borderColor = 'var(--success-color)';
+                }
+            });
+
+            if (!isValid) {
+                showNotification('Veuillez remplir tous les champs obligatoires', 'error');
+            }
+
+            return isValid;
+        }
+
+        // Gestion des sélections
+        function selectRadio(name, value) {
+            const radioItems = document.querySelectorAll(`input[name="${name}"]`).forEach(radio => {
+                radio.closest('.radio-item').classList.remove('selected');
+            });
+            
+            const selectedRadio = document.getElementById(value) || document.querySelector(`input[name="${name}"][value="${value}"]`);
+            if (selectedRadio) {
+                selectedRadio.checked = true;
+                selectedRadio.closest('.radio-item').classList.add('selected');
+            }
+        }
+
+        function toggleCheckbox(id) {
+            const checkbox = document.getElementById(id);
+            const item = checkbox.closest('.checkbox-item');
+            
+            checkbox.checked = !checkbox.checked;
+            
+            if (checkbox.checked) {
+                item.classList.add('selected');
+            } else {
+                item.classList.remove('selected');
+            }
+            
+            // Gestion spéciale pour "autres compétences"
+            if (id === 'autres-comp') {
+                const autresDiv = document.getElementById('autresCompetences');
+                autresDiv.style.display = checkbox.checked ? 'block' : 'none';
+            }
+        }
+
+        // Soumission du formulaire
+        function submitForm() {
+            const formData = new FormData(document.getElementById('membershipForm'));
+            
+            const application = {
+                id: nextId++,
+                timestamp: new Date().toLocaleString('fr-FR'),
+                status: 'pending',
+                nom: formData.get('nom'),
+                email: formData.get('email'),
+                telephone: formData.get('telephone'),
+                ville: formData.get('ville'),
+                motivation: formData.get('motivation'),
+                apport: formData.get('apport'),
+                disponibilite: formData.get('disponibilite'),
+                competences: formData.getAll('competences'),
+                autresDetails: formData.get('autres-details'),
+                typeAdhesion: formData.get('type-adhesion'),
+                newsletter: formData.get('newsletter') ? true : false
+            };
+
+            applications.push(application);
+            
+            // Animation de soumission
+            const nextBtn = document.getElementById('nextBtn');
+            nextBtn.innerHTML = '<div class="loading"></div> Envoi...';
+            nextBtn.disabled = true;
+            
+            setTimeout(() => {
+                document.getElementById('successModal').style.display = 'block';
+                resetForm();
+                updateAdminPanel();
+            }, 2000);
+        }
+
+        function resetForm() {
+            document.getElementById('membershipForm').reset();
+            currentStep = 1;
+            
+            // Réinitialiser les étapes
+            for (let i = 1; i <= totalSteps; i++) {
+                document.getElementById(`formStep${i}`).classList.remove('active');
+                document.getElementById(`step${i}`).classList.remove('active', 'completed');
+            }
+            
+            document.getElementById('formStep1').classList.add('active');
+            document.getElementById('step1').classList.add('active');
+            
+            // Réinitialiser les sélections visuelles
+            document.querySelectorAll('.checkbox-item, .radio-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            
+            document.getElementById('autresCompetences').style.display = 'none';
+            
+            updateNavigation();
+            
+            const nextBtn = document.getElementById('nextBtn');
+            nextBtn.innerHTML = 'Suivant <i class="fas fa-arrow-right"></i>';
+            nextBtn.disabled = false;
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+
+        // Panel d'administration
+        function toggleAdmin() {
+            const panel = document.getElementById('adminPanel');
+            panel.style.display = panel.style.display === 'none' || panel.style.display === '' 
+                ? 'block' : 'none';
+            updateAdminPanel();
+        }
+
+        function updateAdminPanel() {
+            const pendingCount = applications.filter(app => app.status === 'pending').length;
+            const approvedCount = applications.filter(app => app.status === 'approved').length;
+            const rejectedCount = applications.filter(app => app.status === 'rejected').length;
+            
+            document.getElementById('pendingCount').textContent = pendingCount;
+            document.getElementById('approvedCount').textContent = approvedCount;
+            document.getElementById('rejectedCount').textContent = rejectedCount;
+            document.getElementById('totalCount').textContent = applications.length;
+            
+            const applicationsList = document.getElementById('applicationsList');
+            
+            if (applications.length === 0) {
+                applicationsList.innerHTML = `
+                    <div style="text-align: center; padding: 2rem; color: var(--light-text);">
+                        <i class="fas fa-inbox" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                        <p>Aucune candidature pour le moment</p>
+                    </div>
+                `;
+                return;
+            }
+
+            applicationsList.innerHTML = applications.map(app => `
+                <div class="application-card">
+                    <div class="application-header">
+                        <div>
+                            <h4><i class="fas fa-user"></i> ${app.nom}</h4>
+                            <p style="color: var(--light-text); margin: 0;"><i class="fas fa-clock"></i> ${app.timestamp}</p>
+                        </div>
+                        <span class="status-badge status-${app.status}">
+                            ${app.status === 'pending' ? 'En attente' : 
+                              app.status === 'approved' ? 'Approuvé' : 'Rejeté'}
+                        </span>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                        <div><strong>📧 Email:</strong><br>${app.email}</div>
+                        <div><strong>📱 Téléphone:</strong><br>${app.telephone}</div>
+                        <div><strong>🏘️ Ville:</strong><br>${app.ville}</div>
+                        <div><strong>👤 Type:</strong><br>${app.typeAdhesion === 'actif' ? 'Membre actif' : 'Sympathisant'}</div>
+                    </div>
+                    
+                    <div style="margin: 1rem 0;">
+                        <strong>⏰ Disponibilité:</strong> ${getDisponibiliteText(app.disponibilite)}
+                    </div>
+                    
+                    <div style="margin: 1rem 0;">
+                        <strong>🛠️ Compétences:</strong> ${app.competences.length ? app.competences.join(', ') : 'Aucune sélectionnée'}
+                        ${app.autresDetails ? `<br><em>Autres: ${app.autresDetails}</em>` : ''}
+                    </div>
+                    
+                    <details style="margin: 1rem 0;">
+                        <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem; background: var(--light-bg); border-radius: 8px;">
+                            💭 Motivation
+                        </summary>
+                        <p style="margin: 0.5rem 0; padding: 1rem; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                            ${app.motivation}
+                        </p>
+                    </details>
+                    
+                    <details style="margin: 1rem 0;">
+                        <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem; background: var(--light-bg); border-radius: 8px;">
+                            🎯 Ce qu'il/elle souhaite apporter
+                        </summary>
+                        <p style="margin: 0.5rem 0; padding: 1rem; background: white; border-radius: 8px; border-left: 4px solid var(--success-color);">
+                            ${app.apport}
+                        </p>
+                    </details>
+                    
+                    ${app.status === 'pending' ? `
+                        <div class="application-actions">
+                            <button class="btn-admin btn-approve" onclick="approveApplication(${app.id})">
+                                <i class="fas fa-check"></i> Approuver
+                            </button>
+                            <button class="btn-admin btn-reject" onclick="rejectApplication(${app.id})">
+                                <i class="fas fa-times"></i> Rejeter
+                            </button>
+                        </div>
+                    ` : ''}
+                </div>
+            `).join('');
+        }
+
+        function getDisponibiliteText(disponibilite) {
+            const options = {
+                'regulier': '📅 Régulièrement (chaque semaine)',
+                'occasionnel': '🔄 Occasionnellement (selon les besoins)',
+                'evenements': '🎉 Pour des événements spécifiques'
+            };
+            return options[disponibilite] || 'Non spécifiée';
+        }
+
+        function approveApplication(id) {
+            const app = applications.find(a => a.id === id);
+            if (app) {
+                app.status = 'approved';
+                updateAdminPanel();
+                showNotification(`Candidature de ${app.nom} approuvée !`, 'success');
+            }
+        }
+
+        function rejectApplication(id) {
+            if (confirm('Êtes-vous sûr de vouloir rejeter cette candidature ?')) {
+                const app = applications.find(a => a.id === id);
+                if (app) {
+                    app.status = 'rejected';
+                    updateAdminPanel();
+                    showNotification(`Candidature de ${app.nom} rejetée`, 'warning');
+                }
+            }
+        }
+
+        function exportData() {
+            const dataStr = JSON.stringify(applications, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = `candidatures_ailes_espoir_${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 1rem 1.5rem;
+                background: ${type === 'success' ? 'var(--success-color)' : type === 'error' ? 'var(--danger-color)' : 'var(--primary-color)'};
+                color: white;
+                border-radius: 10px;
+                box-shadow: var(--shadow-lg);
+                z-index: 3000;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check' : type === 'error' ? 'exclamation-triangle' : 'info'}"></i>
+                ${message}
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 4000);
+        }
+
+        // Navigation douce
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fermer la modal en cliquant à l'extérieur
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
