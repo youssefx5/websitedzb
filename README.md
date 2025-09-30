@@ -23,6 +23,31 @@ npm start
 
 The server will start on `http://localhost:3000`
 
+## Testing
+
+A test script is provided to verify the API is working correctly:
+
+```bash
+# Start the server in one terminal
+npm start
+
+# In another terminal, run the test script
+./test-api.sh
+```
+
+You can also test individual endpoints using curl:
+
+```bash
+# Health check
+curl http://localhost:3000/api/health
+
+# Get all applications
+curl http://localhost:3000/api/applications
+
+# Get statistics
+curl http://localhost:3000/api/statistics
+```
+
 ## API Endpoints
 
 ### Applications
